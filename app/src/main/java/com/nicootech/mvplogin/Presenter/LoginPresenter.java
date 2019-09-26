@@ -14,11 +14,15 @@ public class LoginPresenter implements ILoginPresenter {
     @Override
     public void onLogin(String email, String password) {
         User user = new User(email,password);
-        boolean isLoginSuccess = user.isValidData();
+        int loginCode = user.isValidData();
 
-        if(isLoginSuccess)
-            loginView.onLoginResult("Login Success");
+        if(loginCode==0)
+            loginView.onLoginError("Please Enter Your Email");
+        else if(loginCode==1)
+            loginView.onLoginError("Please Enter Valid Email");
+        else if(loginCode==2)
+            loginView.onLoginError("Password length must be at least 8 characters");
         else
-            loginView.onLoginResult("Login Error");
+            loginView.onLoginSuccess("Login success");
     }
 }

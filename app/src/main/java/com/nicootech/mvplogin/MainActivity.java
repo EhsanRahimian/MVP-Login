@@ -1,6 +1,7 @@
 package com.nicootech.mvplogin;
 
 import androidx.appcompat.app.AppCompatActivity;
+import es.dmoral.toasty.Toasty;
 
 import android.os.Bundle;
 import android.view.View;
@@ -40,8 +41,15 @@ public class MainActivity extends AppCompatActivity implements ILoginView {
         });
     }
 
+
     @Override
-    public void onLoginResult(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    public void onLoginSuccess(String message) {
+        Toasty.success(this, message,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onLoginError(String message) {
+        Toasty.error(this, message,Toast.LENGTH_SHORT).show();
+
     }
 }
