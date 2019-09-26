@@ -27,9 +27,9 @@ public class User implements IUser {
     public boolean isValidData() {
         //1. check email is empty;
         //2. check email is matches pattern;
-        //3. check password length >8;
+        //3. check password length >=8;
         return !TextUtils.isEmpty(getEmail())&&
                 Patterns.EMAIL_ADDRESS.matcher(getEmail()).matches() &&
-                getPassword().length()>8;
+                getPassword().length()>=8;
     }
 }
