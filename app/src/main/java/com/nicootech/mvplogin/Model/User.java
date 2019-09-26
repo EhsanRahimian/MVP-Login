@@ -24,7 +24,7 @@ public class User implements IUser {
     }
 
     @Override
-    public boolean isValidData(String email, String password) {
+    public boolean isValidData() {
         //1. check email is empty;
         //2. check email is matches pattern;
         //3. check password length >8;
